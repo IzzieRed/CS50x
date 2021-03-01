@@ -1,0 +1,81 @@
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main .form-inline
+{
+    margin-left: 12.5%;
+    width: 75%;
+}
+
+main .label-default
+{
+    /* left align labels */
+    display: inline-block;
+    width: 75%;
+    text-align: left;
+}
+
+div.a
+{
+    width: 75%;
+    text-align: left;
+    margin-left: 12.5%;
+}
+
+input[type="date"] 
+{
+    /* input box size smaller for date */
+    width: 25%;
+}
+
+.card 
+{
+  float: left;
+  margin: 1.5%;
+  width: 30%;
+  max-height: 100%;
+}
+
+.card-text
+{
+    text-align: left;
+}
+
+button[type="submit"]
+{
+    overflow: scroll;
+    white-space: normal;
+    max-width:100%;
+}
+
+.navbar
+{
+    font-family: "Courier New", Courier, monospace;
+}
+
+body
+{
+    background-color: lightblue;
+}
