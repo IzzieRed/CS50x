@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}    
+
+    <div>
+        <div>
+            <h1 class="alert badge-secondary border-info mb-3"> {{ project }} </h1>
+        </div>
+        <div class="a">
+            <div class="alert border-primary mb-3 badge-light">
+                <h6 class="badge badge-primary text-white">Description</h6>
+                <p> {{ description }}</p>
+                <p> <h6 class="badge badge-primary text-white">Due Date:</h6> {{ deadline }}</p>
+            </div>
+            {% for row in added %}
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary"> {{ row["task"] }}</li>
+                    <li class="list-group-item list-group-item-light"> {{ row["details"] }}</li>
+                </ul>
+            {% endfor %}
+        </div>
+        <div>
+            <form action="/edit" method="post">
+               <input type = "hidden" name = "project" value = '{{ project }}' />
+               <input autocomplete="off" autofocus class="form-inline" name="newtask" placeholder="New Task" type="text">
+               <div>
+                   <input autocomplete="off" autofocus class="form-inline" name="details" placeholder="Details (if applicable)" type="text">
+               </div>
+              <p><button class="btn btn-primary" type="submit">Add</button></p>
+            </form>
+        </div>
+    </div>
+{% endblock %}

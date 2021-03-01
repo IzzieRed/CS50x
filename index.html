@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<!-- https://getbootstrap.com/docs/4.3/components/card/ -->
+<div class="jumbotron">
+  <h1 class="display-3">Hello, {{ user }}!</h1>
+  <p class="lead">Are you ready to be productive with Project Planner? Scroll down to see your in-progress projects.</p>
+  <hr class="my-4">
+  <p>You can also add a new project, add tasks to a project, or view your archived projects.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/addnew" role="button">Add New Project</a>
+    <a class="btn btn-primary btn-lg" href="/edit" role="button">Add Tasks to an Existing Project</a>
+    <a class="btn btn-primary btn-lg" href="/archived" role="button">Archived</a>
+  </p>
+</div>
+  {% for row in projects %}
+    <form action="/project" method="post">
+        <div id="project" class="card border-secondary mb-3">
+          <input type="hidden" autofocus name="project" value="{{ row["project"] }}">
+          <button type="submit" class="btn btn-light">
+            <div class="card-body">
+              <h5 class="card-header text-white table-secondary">{{ row["project"] }}</h5>
+              <p class="card-text"> {{ row["description"] }} </p>
+            </div>
+            <div class="card-body">
+              <p class="card-text text-danger" type="date"> {{ row["deadline"] }} </p>
+            </div>
+          </button>
+        </div>
+    </form>
+  {% endfor %}
+{% endblock %}

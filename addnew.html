@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add New Project
+{% endblock %}
+
+{% block main %}
+    <form action="/addnew" method="post">
+        <div>
+            <h4><span class="label-default text-white">Project Name:</span></h4>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-inline" autofocus name="project" type="text">
+        </div>
+        <div>
+            <h4><span class="label-default text-white">Description:</span></h4>
+        </div>
+        <div class="form-group">
+            <textarea class="form-inline" rows="5" autocomplete="off" autofocus name="description" type="text">
+            </textarea>
+        </div>
+        <div>
+            <h4><span class="label-default text-white">Due Date:</span></h4>
+        </div>
+        <div class="form-group">
+        <input autocomplete="off" class="form-inline" autofocus name="deadline" type="date">
+        </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+
+{% endblock %}

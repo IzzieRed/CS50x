@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<!--https://getbootstrap.com/docs/4.0/components/forms/#default-stacked-->
+
+    <div>
+        <form action="/project" method="post">
+        <input type = "hidden" name= "project" value = '{{ project }}' />
+            <h1 class="alert badge-secondary border-info mb-3">{{ project }}</h1>
+            <div class="a">
+                <div class="alert border-primary mb-3 badge-light">
+                    <h6>Description</h6>
+                    <p> {{ description }}</p>
+                    <p> Due Date: {{ deadline }}</p>
+                </div>
+            {% for row in todos %}
+                <div class="form-check  list-group-item list-group-item-primary">
+                  <input type="checkbox" class="form-check-input" name="checkbox" value="{{ row["task"] }}" id="Check">
+                      <label class="form-check-label" for="Check">
+                        {{ row["task"] }}
+                      </label>
+                </div>
+                <div>
+                    <p class="list-group-item list-group-item-light" >{{ row["details"] }}</p>
+                </div>
+            {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-light">Update Progress</button>
+            <input type="submit" class="btn btn-light" name="Finish" value="Finish">
+        </form>
+    </div>
+
+{% endblock %}

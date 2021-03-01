@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}
+    
+    <form action="/edit" method="post">
+        <div class="dropdown">
+            <span class="caret"></span>
+                <select name="project" class="btn btn-secondary">
+                    {% for row in projects %}
+                    <li><option>{{ row["project"] }}</option></li>
+                    {% endfor %}
+               </select>
+           <button class="btn btn-primary" type="submit">Choose Project</button>
+        </div>
+    </form>
+
+{% endblock %}
